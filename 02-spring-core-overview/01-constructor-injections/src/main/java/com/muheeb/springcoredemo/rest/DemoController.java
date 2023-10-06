@@ -1,0 +1,34 @@
+package com.muheeb.springcoredemo.rest;
+
+import com.muheeb.springcoredemo.common.Coach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+
+
+    private Coach myCoach;
+
+    @Autowired
+    public DemoController(Coach theCoach){
+        myCoach=theCoach;
+    }
+
+    @GetMapping("/dailyWorkout")
+    public String getDailyWorkout(){
+        return myCoach.getDailyWorkout() + myCoach.getTime() + "min sofaing!!!!";
+    }
+
+//    @GetMapping("/starPattern")
+//    public void getstarPattern(){
+//        for(int i=0;i<5;i++){
+//            for(int j=0;j<=i;j++){
+//                System.out.print("*");
+//            }
+//            System.out.println();
+//        }
+//    }
+
+}
